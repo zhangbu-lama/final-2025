@@ -11,8 +11,8 @@ import { upload } from "../middlewares/index.js";
 
 export const placesRouter = express.Router();
 
-placesRouter.get("/all", upload.single("place_image"), getAllPlaces);
+placesRouter.get("/all", getAllPlaces);
 placesRouter.get("/:id", getPlaceById);
-placesRouter.post("/add", addPlace);
-placesRouter.put("/update/:id", upload.single("place_image"), updatePlace);
+placesRouter.post("/add", upload.single("image"), addPlace);
+placesRouter.put("/update/:id", upload.single("image"), updatePlace);
 placesRouter.delete("/delete/:id", deletePlace);

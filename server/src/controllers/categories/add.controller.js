@@ -8,7 +8,7 @@ import { Categorie } from "../../models/category.model.js";
 export const addCategory = asyncHandler(async (req, res) => {
     const name = req.body?.name ?? "";
     const description = req.body?.description ?? "";
-    const image = req.file ?? null;
+    const image = req.file ? req.file.filename : null;
 
     if (!name) {
         throw new ErrorResponse(400, 6000, "name is required");
@@ -18,14 +18,14 @@ export const addCategory = asyncHandler(async (req, res) => {
         throw new ErrorResponse(400, 6000, "description is required");
     }
 
-    if (!image) {
-        throw new ErrorResponse(400, 6000, "image is required");
-    }
+    // if (!image) {
+    //     throw new ErrorResponse(400, 6000, "image is required");
+    // }
 
     const category = await Categorie.create({
         name,
         description,
-        image:image.filename,
+        image,
     });
     console.log(category);
 

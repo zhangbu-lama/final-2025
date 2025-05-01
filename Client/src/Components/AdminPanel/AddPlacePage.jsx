@@ -40,7 +40,7 @@ const AdminPlaces = () => {
     queryKey: ['places'],
     queryFn: fetchPlaces,
   });
-  const { data: categories, isLoading: categoriesLoading, error: categoriesError } = useCategories(); // Use the hook
+  const { data: categories = [], isLoading: categoriesLoading, error: categoriesError } = useCategories();
 
   // Form setup with validation
   const { register, handleSubmit, reset, setValue, control, formState: { errors } } = useForm({
@@ -50,6 +50,7 @@ const AdminPlaces = () => {
       description: '',
       category: '',
       timetotravel: '',
+      related_name: '',
       image: null,
     },
   });
@@ -103,9 +104,17 @@ const AdminPlaces = () => {
     formData.append('location', data.location);
     formData.append('description', data.description);
     formData.append('category', data.category);
-    formData.append('timetotravel', data.timetotravel);
+    formData.append('time_to_travel', data.timetotravel);
+    formData.append('related_name', data.related_name || ''); // Ensure related_name is not undefined
+
     if (data.image && data.image[0]) {
       formData.append('image', data.image[0]);
+    }
+
+    // Log the form data
+    console.log('Form Data:');
+    for (let [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
     }
 
     if (editingPlace) {
@@ -122,8 +131,9 @@ const AdminPlaces = () => {
       setValue('name', place.name);
       setValue('location', place.location);
       setValue('description', place.description);
-      setValue('category', place.category.id);
-      setValue('timetotravel', place.timetotravel);
+      setValue('category', place.category?._id || '');
+      setValue('timetotravel', place.time_to_travel);
+      setValue('related_name', place.related_name);
       setImagePreview(place.image || null);
     } else {
       setEditingPlace(null);
@@ -151,11 +161,11 @@ const AdminPlaces = () => {
   };
 
   // Filter places
-  const filteredPlaces = places?.filter((place) => {
+  const filteredPlaces = Array.isArray(places?.data) ? places.data.filter((place) => {
     const matchesFilter = place.name.toLowerCase().includes(filter.toLowerCase());
-    const matchesCategory = selectedCategory ? place.category.id === selectedCategory : true;
+    const matchesCategory = selectedCategory ? place.category?.id === selectedCategory : true;
     return matchesFilter && matchesCategory;
-  });
+  }) : [];
 
   // Loading and error states
   if (placesLoading || categoriesLoading) {
@@ -219,7 +229,7 @@ const AdminPlaces = () => {
               >
                 <MenuItem value="">All Categories</MenuItem>
                 {categories?.map((cat) => (
-                  <MenuItem key={cat.id} value={cat.id}>
+                  <MenuItem key={cat._id} value={cat._id}>
                     {cat.name}
                   </MenuItem>
                 ))}
@@ -256,7 +266,7 @@ const AdminPlaces = () => {
                   <TableCell>{place.name}</TableCell>
                   <TableCell>{place.location}</TableCell>
                   <TableCell>{place.category.name}</TableCell>
-                  <TableCell>{place.timetotravel}</TableCell>
+                  <TableCell>{place.time_to_travel}</TableCell>
                   <TableCell align="right">
                     <Button
                       onClick={() => handleOpenDialog(place)}
@@ -329,8 +339,8 @@ const AdminPlaces = () => {
                   rules={{ required: 'Category is required' }}
                   render={({ field }) => (
                     <Select {...field} label="Category">
-                      {categories?.map((cat) => (
-                        <MenuItem key={cat.id} value={cat.id}>
+                      {Array.isArray(categories) && categories.map((cat) => (
+                        <MenuItem key={cat._id} value={cat._id}>
                           {cat.name}
                         </MenuItem>
                       ))}
@@ -344,6 +354,17 @@ const AdminPlaces = () => {
                 )}
               </FormControl>
               <TextField
+                label="Related Name"
+                {...register('related_name', {
+                  required: 'Related name is required',
+                  maxLength: { value: 100, message: 'Related name must be 100 characters or less' },
+                })}
+                fullWidth
+                margin="normal"
+                error={!!errors.related_name}
+                helperText={errors.related_name?.message}
+              />
+              <TextField
                 label="Time to Travel"
                 {...register('timetotravel', {
                   required: 'Time to travel is required',
@@ -355,6 +376,9 @@ const AdminPlaces = () => {
                 helperText={errors.timetotravel?.message}
               />
               <Box sx={{ mt: 2 }}>
+                <Typography variant="subtitle2" color="textSecondary" gutterBottom>
+                  Image (Optional)
+                </Typography>
                 <input
                   type="file"
                   accept="image/*"

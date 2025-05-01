@@ -111,7 +111,7 @@ const Sidebar = () => {
         <nav className="flex flex-col space-y-2">
           <SidebarLink to="/dashboard" icon={LayoutDashboard} label="Dashboard" />
           <SidebarLink to="/add-category" icon={FolderPlus} label="Add Category" />
-          <SidebarLink to="/page" icon={MapPin} label="Add Place" />
+          <SidebarLink to="/add-page" icon={MapPin} label="Add Place" />
           <SidebarLink to="/add-details" icon={FileText} label="Add Details" />
           <SidebarLink to="/show-bookings" icon={BookOpen} label="Show Bookings" />
           <SidebarLink to="/addlocation" icon={Map} label="Add Location" />

@@ -185,7 +185,7 @@ function App() {
           }
         />
         <Route
-          path="/page"
+          path="/add-page"
           element={
               <AddPage />
           }

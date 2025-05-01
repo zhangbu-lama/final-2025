@@ -21,7 +21,6 @@ const placeModel = new mongoose.Schema(
         related_name: String,
         image: {
             type: String,
-            required: true,
         },
         time_to_travel: {
             type: String,
