@@ -12,7 +12,11 @@ export const getPlaceById = asyncHandler(async (req, res) => {
         throw new ErrorResponse(400, 6000, "invalid place id");
     }
 
+<<<<<<< HEAD
     const place = await Place.findById(placeId).populate("category");
+=======
+    const place = await Place.findById(placeId);
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
 
     if (!place) {
         throw new ErrorResponse(404, 6004, "place not found");

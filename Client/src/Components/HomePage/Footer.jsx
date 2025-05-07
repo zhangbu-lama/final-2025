@@ -57,20 +57,35 @@ function Footer() {
         <div className="fade-in duration-[2s] ease-in-out mt-12 max-w-screen-lg mx-auto px-8 text-white flex flex-col md:flex-row justify-center gap-6 text-lg md:text-xl font-medium">
           
           {/* Admin Authentication */}
+<<<<<<< HEAD
           {/* <a href="/admin/login" className="flex items-center gap-3 hover:text-accent transition">
+=======
+          <a href="/admin/login" className="flex items-center gap-3 hover:text-accent transition">
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 17v-1a4 4 0 00-4-4H8a4 4 0 00-4 4v1m16 0v-1a4 4 0 00-4-4h-.5a4 4 0 00-4 4v1m4-10a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
             Admin Authentication
+<<<<<<< HEAD
           </a> */}
 
           {/* Dashboard */}
           {/* <a href="/dashboard" className="flex items-center gap-3 hover:text-accent transition">
+=======
+          </a>
+
+          {/* Dashboard */}
+          <a href="/dashboard" className="flex items-center gap-3 hover:text-accent transition">
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12h18M3 6h18M3 18h18" />
             </svg>
             Dashboard
+<<<<<<< HEAD
           </a> */}
+=======
+          </a>
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
         </div>
       </section>
     </>

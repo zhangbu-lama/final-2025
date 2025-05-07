@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React from 'react';
 // import { motion } from 'framer-motion';
 // import { Link } from 'react-router-dom';
@@ -140,6 +141,8 @@
 
 // export default AdminPanel;
 
+=======
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -147,7 +150,11 @@ import { ArrowLeft, Trash2, Loader2 } from 'lucide-react';
 import useProductStore from '../Store/useProductstore';
 import Layout from './Layout';
 
+<<<<<<< HEAD
 // Animation Variants
+=======
+// Animation Variants (Copied from TrekAdminPanel)
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -164,8 +171,14 @@ const childVariants = {
 const AdminPanel = () => {
   const { bookings, deleteBooking } = useProductStore();
 
+<<<<<<< HEAD
   const isLoading = false;
   const error = null;
+=======
+  // Placeholder for dynamic data fetching (e.g., with React Query)
+  const isLoading = false; // Set to true if fetching data
+  const error = null; // Set to error object if fetch fails
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
 
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to cancel this booking?')) {
@@ -190,11 +203,30 @@ const AdminPanel = () => {
                 className="flex items-center gap-2 text-white hover:text-emerald-200 transition-colors duration-200"
               >
                 <ArrowLeft className="h-6 w-6" />
+<<<<<<< HEAD
               </Link>
               <h1 className="text-4xl font-extrabold text-gray-400 tracking-tight">
                 Booking Management Dashboard
               </h1>
             </div>
+=======
+                <span className="text-lg font-medium">Back to Dashboard</span>
+              </Link>
+              <h1 className="text-4xl font-extrabold text-white tracking-tight">
+                Booking Management Dashboard
+              </h1>
+            </div>
+            {/* Optional: Add button for creating new bookings */}
+            {/*
+            <button
+              onClick={() => {/* Open add booking modal * /}}
+              className="bg-white text-emerald-600 font-semibold py-3 px-6 rounded-full flex items-center gap-2 hover:bg-emerald-50 hover:text-emerald-700 transition-all duration-200 shadow-md"
+            >
+              <Plus className="h-5 w-5" />
+              Add New Booking
+            </button>
+            */}
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
           </div>
         </motion.header>
 
@@ -233,7 +265,11 @@ const AdminPanel = () => {
                 <tbody>
                   {bookings.map((booking) => (
                     <motion.tr
+<<<<<<< HEAD
                       key={booking._id}
+=======
+                      key={booking.id}
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
                       variants={childVariants}
                       className="border-b border-gray-100 hover:bg-sky-50/50 transition-colors duration-150"
                     >
@@ -245,7 +281,11 @@ const AdminPanel = () => {
                       <td className="py-4 px-6 text-gray-600">{new Date(booking.createdAt).toLocaleString()}</td>
                       <td className="py-4 px-6">
                         <button
+<<<<<<< HEAD
                           onClick={() => handleDelete(booking._id)}
+=======
+                          onClick={() => handleDelete(booking.id)}
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
                           className="text-red-500 hover:text-red-700 transition-colors duration-200"
                           title="Cancel Booking"
                         >
@@ -269,4 +309,8 @@ const AdminPanel = () => {
   );
 };
 
+<<<<<<< HEAD
 export default AdminPanel;
+=======
+export default AdminPanel;
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f

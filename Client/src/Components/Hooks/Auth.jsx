@@ -1,7 +1,11 @@
 import { useMutation } from '@tanstack/react-query';
 import { registerUser, loginUser, logoutUser } from '../api/Auth';
 import useAuthStore from '../Store/AuthStore';
+<<<<<<< HEAD
 import React from 'react';
+=======
+
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
 export const useRegister = () => {
   return useMutation({
     mutationFn: registerUser,
@@ -12,6 +16,7 @@ export const useRegister = () => {
 
 export const useLogin = () => {
   const setUser = useAuthStore((state) => state.setUser);
+<<<<<<< HEAD
 
   return useMutation({
     mutationFn: async (data) => {
@@ -34,6 +39,15 @@ export const useLogin = () => {
     onError: (error) => {
       console.error('Error logging in:', error.response?.data?.error || error.message);
     },
+=======
+  return useMutation({
+    mutationFn: loginUser,
+    onSuccess: (data, variables) => {
+      console.log('Login successful:', data);
+      setUser({ email: variables.email });
+    },
+    onError: (error) => console.error('Error logging in:', error.response?.data?.error || error.message),
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
   });
 };
 

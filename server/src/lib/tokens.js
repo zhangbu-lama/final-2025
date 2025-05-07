@@ -15,7 +15,10 @@ export const generateAccessToken = async (userId) => {
     }
     const token = jwt.sign(
         {
+<<<<<<< HEAD
             _id: user._id,
+=======
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
             first_name: user.first_name,
             last_name: user.last_name,
             email_address: user.email_address,
@@ -40,7 +43,10 @@ export const generateRefreshToken = async (userId) => {
     }
     const token = jwt.sign(
         {
+<<<<<<< HEAD
             _id: user._id,
+=======
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
             first_name: user.first_name,
             last_name: user.last_name,
             email_address: user.email_address,

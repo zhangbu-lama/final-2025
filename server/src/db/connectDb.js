@@ -16,3 +16,15 @@ export default async function connectDb() {
         console.log("MongoDB database connection failed!", error);
     }
 }
+<<<<<<< HEAD
+=======
+
+// import mongoose from "mongoose";
+
+// const conntDB = async () => {
+
+//     mongoose.connection.on('connected', () => console.log("dateabase connected "))
+//     await mongoose.connect(`${process.env.MONGODB_URI}/trek-database1`)
+// }
+// export default conntDB
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f

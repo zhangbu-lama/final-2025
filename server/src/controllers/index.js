@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { verifyAdminToken } from "./admin/verifyAdminToken.controller.js";
 import { userLogin } from "./auth/login.controller.js";
 import { logout } from "./auth/logout.controller.js";
@@ -7,6 +8,9 @@ import { getBookingById } from "./booking/byId.controller.js";
 import { createBooking } from "./booking/create.controller.js";
 import { getAllBookings } from "./booking/getAll.controller.js";
 import { getBookingByUserId } from "./booking/getBookingsByUserId.controller.js";
+=======
+import { signup } from "./auth/signup.controller.js";
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
 
 import { addCategory } from "./categories/add.controller.js";
 import { getAllCategories } from "./categories/all.controller.js";
@@ -29,7 +33,10 @@ import { updateTrek } from "./treks/update.controller.js";
 
 export {
     signup,
+<<<<<<< HEAD
     userLogin,
+=======
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
     addTrek,
     getAllTreks,
     getTrekById,
@@ -46,6 +53,7 @@ export {
     getCategorieById,
     deleteCategory,
     updateCategory,
+<<<<<<< HEAD
     verifyUserToken,
     verifyAdminToken,
     logout,
@@ -53,4 +61,6 @@ export {
     getAllBookings,
     getBookingById,
     getBookingByUserId,
+=======
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
 };

@@ -35,7 +35,10 @@ export function errorReponseHandler(err, req, res, next) {
             error_code: 9000,
             message: "Internal server error",
         });
+<<<<<<< HEAD
         console.log(err)
+=======
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
     }
     return next();
 }

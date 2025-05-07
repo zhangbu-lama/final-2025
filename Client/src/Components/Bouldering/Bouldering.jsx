@@ -1,5 +1,6 @@
 import React from "react";
 import MapComponent from "./MapComponent";
+<<<<<<< HEAD
 import ProductShowcase from "./Productpage";
 
 function Bouldering() {   
@@ -87,3 +88,19 @@ function Bouldering() {
 }
 
 export default Bouldering;
+=======
+import ProductPage from "./Productpage";
+import Down from "../HomePage/Down";
+function Bouldering() {   
+  return (
+    <div>
+        <MapComponent />
+        <ProductPage />
+        <Down />
+
+    </div>
+  )
+}
+
+export default Bouldering
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f

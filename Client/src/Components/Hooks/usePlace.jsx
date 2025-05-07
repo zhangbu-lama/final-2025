@@ -21,7 +21,11 @@ export const useAddPlace = () => {
 export const useUpdatePlace = () => {
   const queryClient = useQueryClient();
   return useMutation({
+<<<<<<< HEAD
     mutationFn: ({ _id, data }) => updatePlace(_id, data),
+=======
+    mutationFn: ({ id, data }) => updatePlace(id, data),
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['places'] });
     },

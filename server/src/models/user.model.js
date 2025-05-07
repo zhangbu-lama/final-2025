@@ -1,5 +1,9 @@
 import mongoose from "mongoose";
+<<<<<<< HEAD
 import bcrypt from "bcryptjs";
+=======
+import bcrypt from "bcrypt";
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
 
 const userSchema = new mongoose.Schema(
     {

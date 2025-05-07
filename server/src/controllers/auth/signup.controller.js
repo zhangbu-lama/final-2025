@@ -4,7 +4,11 @@ import {
     SuccessResponse,
 } from "../../lib/index.js";
 import { User } from "../../models/index.js";
+<<<<<<< HEAD
 import bcrypt from "bcryptjs";
+=======
+import bcrypt from "bcrypt";
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
 
 export const signup = asyncHandler(async (req, res) => {
     const firstName = (req.body?.first_name ?? "").trim();

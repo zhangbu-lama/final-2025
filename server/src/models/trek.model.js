@@ -9,10 +9,13 @@ const trekSchema = new mongoose.Schema(
         difficulty: {
             type: String,
         },
+<<<<<<< HEAD
         place: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Place",
         },
+=======
+>>>>>>> a9a2883aa685ca9314235678934306724487af7f
         duration: {
             type: String,
         },
